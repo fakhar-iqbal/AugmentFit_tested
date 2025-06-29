@@ -12,6 +12,9 @@ RUN npm install
 # Copy React app source code
 COPY web-app/ .
 
+ENV NODE_OPTIONS="--max_old_space_size=4096"
+
+
 # Build the app
 RUN npm run build
 
