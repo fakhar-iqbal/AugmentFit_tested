@@ -16,7 +16,7 @@ pipeline {
             }
         }
         
-        stage('Build Application') {
+        stage('Builld Application') {
             steps {
                 echo 'Building React application Docker image...'
                 script {
