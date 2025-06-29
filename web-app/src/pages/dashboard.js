@@ -147,7 +147,7 @@ export default function Dashboard() {
 
   return (
     <div className="dashboard">
-      <h2 className="underline main-heading">Dashboard page2</h2>
+      <h2 className="underline main-heading">Dashboard</h2>
       {loading ? (
         <LoadingSpinner />
       ) : (
