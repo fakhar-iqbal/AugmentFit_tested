@@ -1,0 +1,16 @@
+web-app/node_modules
+selenium-tests/selenium-env
+selenium-tests/__pycache__
+selenium-tests/.pytest_cache
+selenium-tests/reports
+npm-debug.log
+.git
+.gitignore
+README.md
+.env
+.nyc_output
+coverage
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local

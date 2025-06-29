@@ -20,7 +20,26 @@ pipeline {
             steps {
                 echo 'Building React application Docker image...'
                 script {
-                    sh "docker build -t ${DOCKER_IMAGE} ."
+                    // Check if web-app directory and package.json exists
+                    sh """
+                        echo "Checking project structure..."
+                        ls -la
+                        
+                        if [ ! -d "web-app" ]; then
+                            echo "ERROR: web-app directory not found"
+                            exit 1
+                        fi
+                        
+                        if [ ! -f "web-app/package.json" ]; then
+                            echo "ERROR: package.json not found in web-app directory"
+                            echo "web-app directory contents:"
+                            ls -la web-app/
+                            exit 1
+                        fi
+                        
+                        echo "Building Docker image..."
+                        docker build -t ${DOCKER_IMAGE} .
+                    """
                 }
             }
         }
@@ -112,7 +131,7 @@ pipeline {
                     <p><strong>Build Time:</strong> ${currentBuild.durationString}</p>
                 """,
                 mimeType: 'text/html',
-                to: "${env.CHANGE_AUTHOR_EMAIL ?: 'your-email@example.com'}"
+                to: "${env.CHANGE_AUTHOR_EMAIL ?: 'fakhar.iqbal@example.com'}"
             )
         }
         
@@ -128,7 +147,7 @@ pipeline {
                     <p>Please check the logs and fix the issues.</p>
                 """,
                 mimeType: 'text/html',
-                to: "${env.CHANGE_AUTHOR_EMAIL ?: 'your-email@example.com'}"
+                to: "${env.CHANGE_AUTHOR_EMAIL ?: 'fakhar.iqbal@example.com'}"
             )
             
             // Stop container if deployment failed
