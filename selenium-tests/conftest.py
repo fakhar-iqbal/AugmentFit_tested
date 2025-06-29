@@ -32,7 +32,7 @@ def driver():
             if os.path.exists(actual_chromedriver):
                 chromedriver_path = actual_chromedriver
     
-    # Make sure the file is executable
+    # Make sure the file is executabl
     if os.path.exists(chromedriver_path):
         os.chmod(chromedriver_path, 0o755)
     
