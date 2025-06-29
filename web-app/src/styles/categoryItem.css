@@ -1,0 +1,99 @@
+.category-item {
+    /* height: 100px; */
+    /* width: 82%; */
+    width: 850px;
+    display: flex;
+    margin-top: 10px;
+    flex-direction: column;
+    /* border: 1px solid red; */
+    border-top: 0.5px solid rgba(124, 124, 124, 0.27);
+}
+
+.category-item .category {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 0.5px solid rgba(124, 124, 124, 0.27);
+    /* border: 1px solid blue; */
+}
+
+.category-item .description-container {
+    height: 70px;
+    /* width: 150px; */
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-between; */
+    align-items: center;
+    /* border: 1px solid white; */
+}
+
+.category-item .description-container .category-picture {
+    width: 50px;
+    height: 50px;
+    border-radius: 12%;
+    border: 1px solid white;
+}
+
+.category-item .description-container .description {
+    height: 100%;
+    /* width: 100px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-right: 10px;
+    /* align-items: center; */
+    /* border: 1px solid red; */
+    /* overflow: auto; */
+}
+
+.category-item .description-container .description span {
+    color: var(--primaryColor);
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.category-item .description-container .description div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: white;
+    font-weight: 400;
+    font-size: 12px;
+}
+
+.category-item .description-container .description div .circle {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    margin-right: 5px;
+    background-color: var(--primaryColor);
+}
+
+.category-item .buttons-container {
+    /* border: 1px solid red; */
+    width: 350px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.category-item .buttons-container .add-btn {
+    height: fit-content;
+    color: white;
+    font-size: 10px;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+}
+
+.category-item .buttons-container .add-btn .icon {
+    color: var(--primaryColor);
+    font-size: 24px;
+    margin-left: 10px;
+}
+
+.category-item .buttons-container .icon {
+    color: var(--primaryColor);
+    /* font-size: px; */
+}

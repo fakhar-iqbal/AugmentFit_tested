@@ -1,0 +1,21 @@
+.headline {
+  text-align: center;
+  margin-top: 60px;
+  font-size: 36px;
+  color: var(--primaryColor);
+}
+
+.headline .center-container {
+  margin: auto;
+  font-family: "Red Hat Display";
+}
+
+.headline img {
+  margin-left: 18.26px;
+}
+
+.headline .paraLine {
+  color: gray;
+  font-size: 15px;
+  margin-top: 5px;
+}

@@ -1,0 +1,157 @@
+.navigation-panel {
+  width: 18%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-right: 0.5px solid rgba(255, 255, 255, 0.26);
+  position: fixed;
+  font-size: small;
+}
+
+.navigation-panel .options-container {
+  display: flex;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  width: 100%;
+  height: 65%;
+  flex-direction: column;
+  align-items: center;
+  /* border: 1px solid blue; */
+}
+
+.navigation-panel .options-container ul {
+  padding: 0;
+  list-style-type: none;
+  width: 100%;
+}
+
+.navigation-panel .options-container ul li {
+  margin-top: 15px;
+  /* padding: 2px 10px; */
+  /* border: 1px solid red; */
+}
+
+.navigation-panel .active-mark {
+  width: 5px;
+  height: 28px;
+  border-radius: 0px 25px 25px 0px;
+}
+
+.navigation-panel .active {
+  background-color: var(--primaryColor);
+}
+
+.navigation-panel .inactive {
+  background-color: transparent;
+}
+
+.navigation-panel .options-container ul li .link {
+  width: 100%;
+  color: rgba(255, 255, 255, 0.47);
+  text-decoration: none;
+  /* border: 1px solid red; */
+  /* justify-content: space-between; */
+}
+
+.navigation-panel .options-container ul li .link-active {
+  color: white;
+  text-decoration: none;
+}
+
+.options-container ul li .link-active span,
+.options-container ul li .link span {
+  margin-left: 15px;
+}
+
+.navigation-panel .options-container ul li .link:hover {
+  color: white;
+  cursor: pointer;
+}
+
+.navigation-panel .sign-out-container {
+  width: 100%;
+  margin-left: 25px;
+  display: flex;
+  margin-top: 40px;
+}
+
+.navigation-panel .sign-out-container .icon {
+  font-size: 24px;
+  color: var(--primaryColor);
+}
+
+.navigation-panel .sign-out-container .sign-out {
+  cursor: pointer;
+  border: none;
+  color: white;
+  background-color: transparent;
+  font-family: "Red Hat Display";
+}
+
+.navigation-panel .sign-out-container .sign-out:hover {
+  color: rgb(229, 226, 226);
+}
+
+@media (max-width: 425px) {
+  .navigation-panel {
+    width: 30%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-right: 0.5px solid rgba(255, 255, 255, 0.26);
+    position: fixed;
+    font-size: small;
+  }
+}
+
+@media (min-width: 700px) {
+  .navigation-panel {
+    font-size: medium;
+    width: 18%;
+  }
+
+  .options-container ul li .link-active span,
+  .options-container ul li .link span {
+    margin-left: 20px;
+  }
+}
+
+@media (min-height: 900px) {
+  .navigation-panel .active-mark {
+    height: 43px;
+    width: 8px;
+  }
+
+  .navigation-panel .options-container {
+    margin-top: 70px;
+  }
+}
+
+@media (min-height: 900px) {
+  .navigation-panel .options-container {
+    margin-top: 100px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .options-container ul li .link-active span,
+  .options-container ul li .link span {
+    margin-left: 35px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .options-container ul li .link-active span,
+  .options-container ul li .link span {
+    margin-left: 60px;
+  }
+}
+
+@media (min-width: 1600px) {
+  .options-container ul li .link-active span,
+  .options-container ul li .link span {
+    margin-left: 70px;
+  }
+}

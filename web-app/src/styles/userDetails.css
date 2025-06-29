@@ -1,0 +1,32 @@
+.user-details * {
+  color: white;
+}
+
+.user-details-loading-wrapper,
+.no-user-details-wrapper {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-details-container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 100;
+  max-width: 60%;
+  margin: auto;
+  /* border-left: 1px solid var(--primaryColor);
+  border-right: 1px solid var(--primaryColor); */
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
+  border-right: 1px solid rgba(255, 255, 255, 0.5);
+
+  padding: 0px 50px;
+}
+
+@media (max-width: 575px) {
+  .user-details-container {
+    max-width: 95%;
+    border: 0;
+  }
+}

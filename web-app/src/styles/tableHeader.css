@@ -1,0 +1,145 @@
+.table-header {
+    height: 50px;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    /* border: 1px solid yellow; */
+    /* position: fixed; */
+}
+
+.table-header h2 {
+    margin: 0;
+    font-weight: 400;
+    color: var(--primaryColor);
+}
+
+.table-header label{
+    margin-right: 10px;
+    margin-left: 10px;
+    font-size: small;
+    font-weight: bold;
+    display: block;
+}
+
+.table-header select{
+    padding: 3px;
+    border: none;
+    margin: 10px;
+    width: max-content;
+    font-size: small;
+    display: block;
+}
+
+.table-header .container {
+    width: 35%;
+    display: flex;
+    flex-grow: unset;
+    margin-left: auto;
+    flex-direction: row;
+    justify-content: space-evenly;
+    /* border: 1px solid red; */
+}
+
+.table-header .container img {
+    width: 18.35px;
+    height: 13px;
+    margin-left: 8px;
+}
+
+.table-header .icon {
+    font-size: 8px;
+}
+
+.table-header .icon .small {
+    font-size: 8px;
+}
+
+.table-header button, .table-header .location {
+    width: 60px;
+    height: 25px;
+    border: none;
+    border-radius: 3px;
+    font-size: 8px;
+    background-color: var(--primaryColor);
+}
+
+.table-header .location {
+    width: 70px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-left: 10px;
+}
+
+
+
+@media (max-width:425px)
+{
+
+    
+    .table-header label{
+        margin-right: 5px;
+        margin-left: 5px;
+        font-size: small;
+        font-weight: bold;
+        display: block;
+    }
+    
+    .table-header select{
+        display: flex;
+        flex-wrap: wrap;
+        padding: 3px;
+        border: none;
+        margin: 3px;
+        width: 40px;
+        font-size: small;
+        display: block;
+    }
+}
+
+@media (min-width: 700px) {
+
+    .table-header .container {
+        width: 30%;
+    }
+
+    .table-header .icon {
+        font-size: 11px;
+    }
+
+    .table-header button, .table-header .location {
+        /* font-size: medium; */
+        width: 80px;
+        height: 30px;  
+        font-size: 12px;  
+    }
+
+    .table-header .location {
+        width: 120px;
+        /* font-size: 8px; */
+    }
+
+
+}
+
+@media (min-width: 1100px) {
+
+    .table-header .container {
+        width: 30%;
+    }
+
+    .table-header .icon {
+        font-size: 11px;
+    }
+
+    .table-header button {
+        /* font-size: medium; */
+        width: 120px;
+        height: 30px;  
+        font-size: 12px;  
+    }
+
+}
+
+

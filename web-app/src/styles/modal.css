@@ -1,0 +1,149 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(61, 60, 60, 0.8);
+  z-index: 1;
+  scroll-behavior: auto;
+  justify-content: center;
+  align-items: center;
+  overflow-y: scroll;
+}
+.modal::-webkit-scrollbar {
+  display: none;
+}
+
+.modal {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.show {
+  display: flex;
+}
+
+.hide {
+  display: none;
+}
+.user-modal-btn {
+  background-color: var(--primaryColor);
+  box-shadow: none;
+  border: none;
+  border-radius: 5px;
+  width: 70%;
+  height: 45px;
+}
+.modal .modal-content {
+  max-width: 90vw;
+  min-width: 500px;
+  height: 350px;
+  background-color: #242424;
+  border: 1px solid var(--primaryColor);
+  border-radius: 15px;
+  height: fit-content;
+  padding: 15px;
+}
+
+.modal .modal-content .modal-header {
+  display: flex;
+  padding: 10px;
+  align-items: center;
+  color: var(--primaryColor);
+}
+
+.modal .modal-content .modal-header .icon {
+  color: white;
+  margin-left: auto;
+}
+
+.modal .modal-content .modal-content-center {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 100;
+  align-items: center;
+}
+.modal-content-center h3 {
+  color: white;
+}
+.user-modal-inputs-wrapper {
+  display: flex;
+  gap: 10%;
+  width: 90%;
+  margin-bottom: 10px;
+}
+
+.user-modal-label {
+  color: white;
+}
+.user-modal-input-label-wrapper {
+  flex: 1;
+}
+
+.modal-text-flex {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+@media (max-width: 550px) {
+  .modal .modal-content {
+    max-width: 82vw;
+    width: 400px;
+    min-width: 0;
+  }
+}
+
+/* contend modal */
+.content-video-wrapper {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+}
+.content-video-wrapper > div {
+  height: 300px !important;
+  width: fit-content !important;
+}
+.content-video-wrapper video {
+  border-radius: 3px;
+}
+.post-details {
+  color: white;
+}
+.post-details .post-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  justify-content: space-between;
+}
+.post-details .post-header-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.post-details .post-header img {
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+}
+.post-details .likes-wrapper,
+.post-details .comments-wrapper {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.post-details p,
+.post-details small {
+  margin: 0;
+}
+.post-play-icon {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+/* content modal end */

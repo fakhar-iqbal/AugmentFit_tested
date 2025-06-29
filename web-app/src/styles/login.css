@@ -1,0 +1,89 @@
+.login {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  /* margin-top: 50%; */
+  /* margin-bottom: 50%; */
+  justify-content: center;
+  /* border: 1px solid red; */
+}
+
+.login .container {
+  width: 400px;
+  height: 150px;
+  margin: auto;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.login .passwordField {
+  width: 70%;
+}
+
+.login .button-container {
+  width: 400px;
+  max-width: 79vw;
+  height: 100px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.login .forgot-password {
+  color: gray;
+  font-weight: 400;
+  font-size: 15px;
+  width: 80%;
+  text-align: right;
+}
+
+.login .button-container button {
+  width: 80%;
+  height: 45%;
+  border: none;
+  border-radius: 5px;
+}
+
+.login .caption,
+.login .error {
+  margin: auto;
+  margin-top: 10px;
+  width: fit-content;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--primaryColor);
+}
+
+.login .caption span {
+  color: white;
+}
+
+.login .error {
+  margin-top: 0;
+  color: red;
+  font-size: small;
+}
+
+.login .button-container .login-button {
+  background-color: var(--primaryColor);
+}
+
+.login .button-container .create-account {
+  color: white;
+  background-color: transparent;
+  border: 1px solid var(--primaryColor);
+}
+
+.login .button-container .login-button:hover {
+  background-color: #b7611b;
+}
+
+.login .button-container .create-account:hover {
+  background-color: rgb(54, 52, 52);
+}

@@ -1,0 +1,81 @@
+.stylists {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 100;
+    overflow-x: scroll;
+    min-height: 400px;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */  
+}
+
+.stylists::-webkit-scrollbar {
+    display: none;
+}
+
+.stylists .cards-container {
+    /* border: 1px solid red; */
+    width: 85%;
+    display: grid;
+    row-gap: 28px;
+    column-gap: 28px;
+    grid-template-columns: repeat(8, 80px);
+}
+
+.stylists .picture-container, .input-fields-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    justify-content: center;
+    border-radius:5px ;
+}
+.stylists .picture-container, .input-fields-container input{
+    border-radius:5px ;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+}
+
+.stylists .picture-container .add-picture {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    /* border: 1px solid white; */
+}
+
+.stylists .picture-container span {
+    font-size: small;
+    color: white;
+    margin-top: 5px;
+    font-weight: 300;
+}
+
+
+.input-fields-container {
+    width: 320px;
+    height: 65px;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+}
+.input-container {
+    width: 250px;
+    height: 100px;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.update-stylist-detail {
+    border: none;
+    border-radius: 3px;
+    margin: auto;
+    width: 70px;
+    height: 30px;
+    background-color: var(--primaryColor);
+}
+
+.update-stylist-detail:hover {
+    background-color: rgb(221, 204, 135);
+}

@@ -1,0 +1,15 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 100;
+    margin-left: 20%;
+    max-width: 80%;
+}
+
+@media (max-width:425px) {
+    .container {
+        margin-left: 38%;
+        max-width: 80%;
+    }
+
+}

@@ -1,0 +1,127 @@
+.table {
+  overflow: scroll;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.table::-webkit-scrollbar {
+  display: none;
+}
+
+.table table {
+  /* width: 90%; */
+  width: 850px;
+  margin-top: 10px;
+  margin-bottom: 50px;
+}
+
+.table th {
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 400;
+  font-size: small;
+  border-bottom: 1px solid #2e2e2e;
+}
+
+.table table,
+th {
+  border-collapse: collapse;
+}
+
+.table table th {
+  height: 40px;
+  text-align: left;
+  padding: 20px 16px;
+}
+
+.table table td {
+  height: 40px;
+
+  color: white;
+  font-size: 16px;
+  /* text-align: center; */
+  padding: 20px 16px;
+  justify-content: center;
+}
+
+.table table td button {
+  width: 75px;
+  /* height: 20px; */
+  border: none;
+  color: white;
+  padding: 5px 5px;
+  border-radius: 3px;
+  font-family: "Red Hat Display";
+}
+
+.table table td .name {
+  /* width: 145px; */
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: center;
+  color: var(--primaryColor);
+  /* border: 1px solid red; */
+}
+
+.table table td .accept {
+  background-color: #ED8936;
+}
+
+.table table td .complete {
+  background-color: #ED8936;
+  width: 125px;
+  /* height: 20px; */
+  border: none;
+  color: white;
+  justify-content: center;
+  align-self: center;
+  padding: 5px 5px;
+  border-radius: 3px;
+  font-family: "Red Hat Display";
+}
+
+.table table td .decline {
+  margin-left: 4px;
+  background-color: rgb(92, 91, 91);
+}
+
+.table table td .details {
+  float: right;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.table tr {
+  height: 55px;
+}
+
+.table tr:nth-child(odd) {
+  background-color: #2e2e2e;
+}
+
+.table .dropdown {
+  width: auto;
+  height: auto;
+}
+
+.table .dropdown .dropdown-content {
+  margin-left: -140px;
+}
+.dropdown-content button {
+  margin-left: 8px;
+  row-gap: 12px;
+  color: white;
+  background-color: transparent;
+  width: 100%;
+}
+.dropdown-content button .icon {
+  padding-right: 4px;
+}
+
+@media (min-width: 950px) {
+  .table table {
+    width: 90%;
+    /* width: 850px; */
+    margin-top: 10px;
+    margin-bottom: 50px;
+  }
+}

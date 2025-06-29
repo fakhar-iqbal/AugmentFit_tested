@@ -1,0 +1,125 @@
+.booking-details {
+    width: 100%;
+    overflow: scroll;
+    /* border: 1px solid red; */
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none; 
+    padding-left: 30px;
+    padding-right: -90px;
+}
+
+.booking-details::-webkit-scrollbar {
+    display: none;
+}
+
+.booking-details h2 {
+    color: var(--primaryColor);
+    font-weight: 400;
+    margin-top: 0; 
+}
+
+.booking-details .details {
+    /* width: 80%; */
+    width: 100%;
+    display: grid;
+    row-gap: 25px;
+    padding-bottom: 20px;
+    border-bottom: 2px dashed rgba(82, 81, 81);
+    grid-template-columns: repeat(4, 1fr);
+    /* border: 1px solid blue; */
+}
+
+.details .cell {
+    display: flex;
+    color: var(--primaryColor);
+    flex-direction: column;
+    font-size: 18px;
+    /* border: 1px solid red;; */
+}
+
+.details .cell span {
+    font-size: 16px;
+}
+
+.cell span, .cell .card {
+    color: white;
+    font-weight: 300;
+    margin-top: 5px;
+}
+
+#stylist {
+    grid-column-start: 3;
+    grid-column-end: 4;
+}
+
+#stylist .icon {
+    font-size: 10px;
+    color: var(--primaryColor);
+}
+
+.cell .card {
+    display: flex;
+}
+
+.booking-details .services {
+    color: var(--primaryColor);
+    margin-top: 20px;
+    width: 800px;
+    padding-bottom: 20px;
+    border-bottom: 2px dashed rgba(82, 81, 81);
+}
+
+.booking-details .services div {
+    display: flex;
+    width: 250px;
+    margin-top: 5px;
+    flex-direction: column;
+}
+
+.booking-details .total {
+    width: 550px;
+    margin-top: 20px;
+    color: var(--primaryColor);
+}
+
+.booking-details .services .service-item, .booking-details .total .item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: white;
+    font-weight: 300;
+}
+
+.booking-details .total .item {
+    margin-top: 5px;
+    width: 250px;
+}
+
+.booking-details button {
+    margin-left: 10px;
+    margin-top: 50px;
+    margin-bottom: 100px;
+    width: 174px;
+    height: 54px;
+    border-radius: 10px;
+    border: none;
+    font-size: 16px;
+}
+
+.booking-details .approve {
+    background-color: var(--primaryColor);
+}
+
+.booking-details .approve:hover {
+    background-color:  rgb(228, 210, 140);
+}
+
+@media (min-width: 800px) {
+    .booking-details .details {
+        width: 80%;
+    }
+    
+    .booking-details .services {
+        width: 80%;
+    }
+}

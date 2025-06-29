@@ -1,0 +1,27 @@
+.input {
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 6px;
+    border: 1px solid var(--primaryColor);
+}
+
+.input input:focus-visible {
+    outline: none;
+}
+
+.input input {
+    width: 80%;
+    height: 50px;
+    color: white;
+    border: none;
+    background-color: transparent;
+}
+
+.input .icon {
+    font-size: 24px;
+    color: var(--primaryColor)
+}

@@ -1,0 +1,47 @@
+.footer {
+  height: 10%;
+  margin-top: auto;
+  color: white;
+  /* border: 1px solid red; */
+  font-size: 18px;
+  margin-right: 80px;
+}
+
+.footer div {
+  float: right;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.footer div .icon {
+  font-size: 18px;
+}
+
+.footer div .prev {
+  margin-left: 40px;
+}
+
+.footer div .inactive {
+  color: rgba(102, 113, 241, 0.3);
+}
+
+.footer div .active {
+  color: var(--primaryColor);
+}
+.pagination {
+  display: flex;
+  flex-direction: row;
+
+  padding: 10px;
+  color: white;
+}
+.pagination ul {
+  color: white;
+}
+
+.paginate-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}

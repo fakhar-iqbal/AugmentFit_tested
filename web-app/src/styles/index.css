@@ -1,0 +1,52 @@
+:root {
+  /* --primaryColor: #E6B970; */
+  --primaryColor: #ED8936;
+  /* --secondaryColor: #242424; */
+  /* --secondaryColor: #1f1e1e; */
+  --secondaryColor: #22201D;
+}
+
+body {
+  margin: 0 auto;
+  min-height: 100vh;
+  /* border: 1px solid red; */
+  font-family: "Red Hat Display";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--secondaryColor);
+  overflow-x: hidden !important;
+}
+button {
+  color: white;
+  cursor: pointer;
+}
+
+#root {
+  /* min-height: 100vh; */
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  justify-content: center;
+}
+
+/* body::-webkit-scrollbar {
+  display: none;
+} */
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.center-container {
+  width: fit-content;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* border: 1px solid red; */
+}
+
+input,
+button {
+  font-family: "Red Hat Display";
+}

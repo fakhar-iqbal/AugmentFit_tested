@@ -1,0 +1,119 @@
+.locations {
+  display: flex;
+
+  margin-top: 20px;
+  margin: 20px;
+  margin-right: 20px;
+  flex-direction: column;
+  /* border: 1px solid red; */
+}
+.table {
+  overflow: scroll;
+}
+.locations .location-header {
+  height: 10%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 27px;
+  /* border: 1px solid white; */
+}
+.loader {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.locations .location-header h2 {
+  margin: 0;
+  font-weight: 500;
+  color: var(--primaryColor);
+  font-size: 12px;
+}
+
+.locations .location-header button {
+  border: none;
+  color: white;
+  text-decoration: underline;
+  background-color: transparent;
+  font-size: 10px;
+  font-weight: 400;
+  font-family: "Red Hat Display";
+}
+
+.locations .location-header button:hover,
+.locations .location-item .actions button:hover {
+  color: rgb(219, 218, 218);
+}
+
+.locations .location-item {
+  height: 35px;
+  display: flex;
+  padding: 10px 0 10px 0;
+  margin-bottom: 10px;
+  justify-content: space-between;
+  border-bottom: 0.5px solid rgba(255, 255, 255, 0.28);
+}
+
+.locations .location-item .address,
+.locations .location-item .actions {
+  width: 30%;
+  font-size: x-small;
+  display: flex;
+  color: white;
+  font-weight: 400;
+  align-items: center;
+  /* justify-content: space-between; */
+}
+
+.locations .location-item .actions {
+  justify-content: flex-end;
+}
+
+.locations .location-item .address .icon {
+  color: var(--primaryColor);
+  font-size: 24px;
+  margin-right: 6px;
+}
+
+.locations .location-item .actions {
+  width: 35%;
+  /* border: 1px solid red; */
+}
+
+.locations .location-item .actions button {
+  border: none;
+  color: white;
+  font-weight: 400;
+  text-decoration: underline;
+  background-color: transparent;
+  font-size: 10px;
+  font-family: "Red Hat Display";
+}
+.input-fields-container {
+  margin-top: 40px;
+}
+
+@media (min-width: 800px) {
+  .locations .location-item .address {
+    width: 35%;
+    font-size: medium;
+  }
+
+  .locations .location-item .actions button {
+    font-size: 14px;
+  }
+
+  .locations .location-header h2 {
+    font-size: 24px;
+  }
+
+  .locations .location-header button {
+    font-size: 14px;
+  }
+
+  .locations .location-item .address .icon {
+    margin-right: 26px;
+    font-size: 27px;
+  }
+}
