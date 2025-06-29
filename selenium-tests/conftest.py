@@ -3,6 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
+import os
 
 @pytest.fixture(scope="function")
 def driver():
@@ -13,6 +14,7 @@ def driver():
     chrome_options.add_argument("--disable-dev-shm-usage")
     chrome_options.add_argument("--disable-gpu")
     chrome_options.add_argument("--window-size=1920,1080")
+    chrome_options.add_argument("--remote-debugging-port=9222")
     
     service = Service(ChromeDriverManager().install())
     driver = webdriver.Chrome(service=service, options=chrome_options)
@@ -25,5 +27,5 @@ def driver():
 @pytest.fixture(scope="session")
 def base_url():
     """Base URL of your web application"""
-    # Replace this with your actual deployed URL
-    return "http://localhost:3000"  # Change this to your deployment URL
+    # Use environment variable or default to EC2 deployment URL
+    return os.getenv('BASE_URL', 'http://localhost:8081')

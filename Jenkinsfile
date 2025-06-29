@@ -2,34 +2,73 @@ pipeline {
     agent any
     
     environment {
-        REPO_URL = 'https://github.com/yourusername/your-repo.git'
+        DOCKER_IMAGE = "react-app:${BUILD_NUMBER}"
+        CONTAINER_NAME = "react-app-container"
+        APP_PORT = "8081"
+        BASE_URL = "http://localhost:8081"
     }
     
     stages {
         stage('Checkout') {
             steps {
+                echo 'Checking out code from GitHub...'
                 checkout scm
             }
         }
         
-        stage('Build Test Environment') {
+        stage('Build Application') {
             steps {
+                echo 'Building React application Docker image...'
                 script {
-                    // Build Docker image for tests
-                    sh 'docker build -f Dockerfile.tests -t selenium-tests .'
+                    sh "docker build -t ${DOCKER_IMAGE} ."
                 }
             }
         }
         
-        stage('Run Tests') {
+        stage('Deploy Application') {
             steps {
+                echo 'Deploying application...'
                 script {
-                    // Run tests in Docker container
-                    sh '''
-                        docker run --rm \
-                        -v $(pwd)/selenium-tests/reports:/app/reports \
-                        selenium-tests
-                    '''
+                    // Stop and remove existing container if running
+                    sh """
+                        docker stop ${CONTAINER_NAME} || true
+                        docker rm ${CONTAINER_NAME} || true
+                        
+                        # Run new container
+                        docker run -d \
+                            --name ${CONTAINER_NAME} \
+                            -p ${APP_PORT}:80 \
+                            ${DOCKER_IMAGE}
+                        
+                        # Wait for application to start
+                        sleep 10
+                        
+                        # Health check
+                        curl -f http://localhost:${APP_PORT} || exit 1
+                    """
+                }
+            }
+        }
+        
+        stage('Run Selenium Tests') {
+            steps {
+                echo 'Running Selenium tests...'
+                script {
+                    sh """
+                        # Create Python virtual environment
+                        python3 -m venv selenium-env
+                        source selenium-env/bin/activate
+                        
+                        # Install dependencies
+                        cd selenium-tests
+                        pip install -r requirements.txt
+                        
+                        # Set environment variable for base URL
+                        export BASE_URL=${BASE_URL}
+                        
+                        # Run tests with HTML report
+                        pytest --html=report.html --self-contained-html -v
+                    """
                 }
             }
             post {
@@ -39,8 +78,8 @@ pipeline {
                         allowMissing: false,
                         alwaysLinkToLastBuild: true,
                         keepAll: true,
-                        reportDir: 'selenium-tests/reports',
-                        reportFiles: 'test_report.html',
+                        reportDir: 'selenium-tests',
+                        reportFiles: 'report.html',
                         reportName: 'Selenium Test Report'
                     ])
                 }
@@ -50,20 +89,55 @@ pipeline {
     
     post {
         always {
-            // Email test results
-            emailext(
-                to: '${CHANGE_AUTHOR_EMAIL}',
-                subject: 'Test Results: ${JOB_NAME} - Build ${BUILD_NUMBER}',
-                body: '''
-                Build: ${BUILD_NUMBER}
-                Status: ${BUILD_STATUS}
-                
-                Test Results: ${BUILD_URL}Selenium_Test_Report/
-                
-                Console Output: ${BUILD_URL}console
-                ''',
-                attachmentsPattern: 'selenium-tests/reports/*.html'
+            echo 'Pipeline completed'
+            
+            // Clean up old Docker images
+            script {
+                sh """
+                    docker images -q react-app | head -n -3 | xargs -r docker rmi || true
+                """
+            }
+        }
+        
+        success {
+            echo 'Pipeline succeeded! Application deployed successfully.'
+            emailext (
+                subject: "Jenkins Build Success: ${env.JOB_NAME} - ${env.BUILD_NUMBER}",
+                body: """
+                    <h2>Build Successful!</h2>
+                    <p><strong>Job:</strong> ${env.JOB_NAME}</p>
+                    <p><strong>Build Number:</strong> ${env.BUILD_NUMBER}</p>
+                    <p><strong>Application URL:</strong> <a href="http://your-ec2-public-ip:${APP_PORT}">http://your-ec2-public-ip:${APP_PORT}</a></p>
+                    <p><strong>Test Report:</strong> Check Jenkins for detailed test results</p>
+                    <p><strong>Build Time:</strong> ${currentBuild.durationString}</p>
+                """,
+                mimeType: 'text/html',
+                to: "${env.CHANGE_AUTHOR_EMAIL ?: 'your-email@example.com'}"
             )
+        }
+        
+        failure {
+            echo 'Pipeline failed!'
+            emailext (
+                subject: "Jenkins Build Failed: ${env.JOB_NAME} - ${env.BUILD_NUMBER}",
+                body: """
+                    <h2>Build Failed!</h2>
+                    <p><strong>Job:</strong> ${env.JOB_NAME}</p>
+                    <p><strong>Build Number:</strong> ${env.BUILD_NUMBER}</p>
+                    <p><strong>Console Output:</strong> <a href="${env.BUILD_URL}console">View Console</a></p>
+                    <p>Please check the logs and fix the issues.</p>
+                """,
+                mimeType: 'text/html',
+                to: "${env.CHANGE_AUTHOR_EMAIL ?: 'your-email@example.com'}"
+            )
+            
+            // Stop container if deployment failed
+            script {
+                sh """
+                    docker stop ${CONTAINER_NAME} || true
+                    docker rm ${CONTAINER_NAME} || true
+                """
+            }
         }
     }
 }
